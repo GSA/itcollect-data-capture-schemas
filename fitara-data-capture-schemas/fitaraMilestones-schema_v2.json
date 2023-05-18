@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "version": 2,
+  "id": "https://management.cio.gov/schema/fitaraMilestones",
+  "title": "FITARA Milestones",
+  "description": "Schema definition for the reporting the status of milestones implementing FITARA Common Baseline",
+  "type": "object",
+  "required": [
+    "updatedDate",
+    "milestones"
+  ],
+  "properties": {
+    "updatedDate": {
+      "title": "Decision Date",
+      "description": "Decision date (YYYY/MM/DD format)",
+      "id": "https://management.cio.gov/schema/fitaraMilestones/decisionDate",
+      "type": "string",
+      "pattern": "^[0-9]{4}/[0-9]{2}/[0-9]{2}$"
+    },
+    "milestones": {
+      "type": "array",
+      "title": "Milestones",
+      "id": "https://management.cio.gov/schema/fitaraMilestones/milestones",
+      "items": {
+        "type": "object",
+        "title": "Milestone",
+        "description": "Information about a particular milestone.",
+        "id": "https://management.cio.gov/schema/fitaraMilestones/milestones/milestone",
+        "required": [
+          "milestoneID",
+          "milestoneDesc",
+          "milestoneTargetCompletionDate",
+          "milestoneStatus",
+          "milestoneStatusDesc",
+          "commonBaselineArea",
+          "dcoiArea"
+        ],
+        "properties": {
+          "milestoneID": {
+            "type": "number"
+          },
+          "milestoneDesc": {
+            "title": "Milestone Description",
+            "description": "The description for the milestone",
+            "type": "string",
+            "maxLength": 500
+          },
+          "milestoneTargetCompletionDate": {
+            "title": "Milestone Target Completion Date",
+            "description": "Completion date (YYYY/MM/DD format)",
+            "type": "string",
+            "pattern": "^[0-9]{4}/[0-9]{2}/[0-9]{2}$"
+          },
+          "milestoneStatus": {
+            "title": "Milestone Status",
+            "description": "Milestone Status (enum value)",
+            "type": "string",
+            "enum": [
+              "NotStarted",
+              "InProgress",
+              "Complete",
+              "Deferred"
+            ]
+          },
+          "milestoneStatusDesc": {
+            "title": "Milestone Status Description",
+            "description": "The description of the milestone status.",
+            "type": "string",
+            "maxlength": 500
+          },
+          "commonBaselineArea": {
+            "title": "Common Baseline Area",
+            "description": "The common baseline area",
+            "type": "string",
+            "enum": [
+              "budgetFormulation",
+              "budgetExecution",
+              "acquisition",
+              "organizationAndWorkforce",
+              "nonCommonBaseline"
+            ]
+          },
+          "dcoiArea": {
+            "title": "DCOI Area",
+            "description": "The DCOI Area",
+            "type": "string",
+            "enum": [
+              "optimization",
+              "closures",
+              "costSavings",
+              "sharedServices",
+              "cloudMigration",
+              "CIOLeadership",
+              "other",
+              "nonDataCenter"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
