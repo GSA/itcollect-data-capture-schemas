@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Governance Boards",
+  "version": 2,
+  "description": "The governance board over an agency",
+  "type": "object",
+  "required": [
+    "boards"
+  ],
+  "properties": {
+    "boards": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "title": "Governance Board",
+          "description": "A specific governance board",
+          "required": [
+            "governanceBoardName",
+            "programCodeFPI",
+            "bureauCode",
+            "cioInvolvementDescription"
+          ],
+          "properties": {
+            "governanceBoardName": {
+              "type": "string",
+              "title": "Governance Board Name",
+              "description": "The name of the governance board"
+            },
+            "programCodeFPI": {
+              "type": "string",
+              "title": "Program Code FPI",
+              "description": "The program code"
+            },
+            "bureauCode": {
+              "type": "string",
+              "title": "Bureau Code",
+              "description": "The agency's bureau code"
+            },
+            "cioInvolvementDescription": {
+              "type": "string",
+              "title": "CIO Involvement Description",
+              "description": "The description of the CIO's Involvement"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
