@@ -9,7 +9,7 @@
     "strategies"
   ],
   "properties": {
-    "strategies": {
+    "realizedSavingsOrAvoidances": {
       "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies",
       "title": "Strategies schema",
       "description": "A list of realized cost savings and avoidance strategies for this agency",
@@ -17,12 +17,12 @@
       "minItems": 1,
       "additionalItems": false,
       "required": [
-        "initiative"
+        "strategy"
       ],
       "items": {
         "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative",
-        "title": "initiative schema",
-        "description": "Information about a particular initiative",
+        "title": "strategy schema",
+        "description": "Information about a particular strategy",
         "type": "object",
         "required": [
           "strategyId",
@@ -110,10 +110,10 @@
               }
             }
           },
-          "costSavingsRecords": {
+          "savingsAvoidances": {
             "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative/relatedUII/costSavingsRecords",
-            "title": "Cost Savings Records schema",
-            "description": "A grouping of cost savings items, each record mapped to a specific FY",
+            "title": "Savings Avoidances schema",
+            "description": "A grouping of savingAvoidances items, each record mapped to a specific FY",
             "type": "array",
             "minItems": 1,
             "additionalItems": false,
@@ -123,29 +123,29 @@
             "items": {
               "type": "object",
               "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative/relatedUII/costSavingsRecords/costSavingsItem",
-              "title": "Cost Savings Item Schema",
+              "title": "SavingsAvoidance Item Schema",
               "description": "A singular cost savings item, mapped to a specific FY",
               "type": "object",
               "required": [
-                "year",
-                "amount",
+                "fiscalYear",
+                "fYAmount",
                 "netOrGross"
               ],
               "properties": {
-                "year": {
+                "fiscalYear": {
                   "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative/relatedUII/costSavingsRecords/costSavingsItem/year",
                   "title": "Fiscal Year",
                   "description": "The Fiscal Year the Cost Savings record applies to",
                   "type": "string",
                   "pattern": "^(20)\\d{2}$"
                 },
-                "amount": {
+                "fYAmount": {
                   "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative/relatedUII/costSavingsRecords/costSavingsItem/amount",
                   "title": "Fiscal Year Amount",
                   "description": "The amount associated to the cost savings record",
                   "type": "number",
                   "minimum": 0,
-                  "maximum": 1000
+                  "maximum": 9999
                 },
                 "netOrGross": {
                   "id": "https://omb.max.gov/schemas/CostSavingsAndAvoidance/strategies/initiative/relatedUII/costSavingsRecords/costSavingsItem/netOrGross",
